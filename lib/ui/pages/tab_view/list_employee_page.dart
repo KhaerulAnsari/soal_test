@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:soal_test/theme.dart';
 import 'package:soal_test/ui/pages/global.dart';
-import 'package:soal_test/ui/pages/tab_view/detail_employee.dart';
 import 'package:soal_test/ui/widgets/employee_card.dart';
 import 'package:soal_test/ui/widgets/null_data.dart';
 
@@ -27,17 +25,8 @@ class ListEmployeePage extends StatelessWidget {
                 physics: const AlwaysScrollableScrollPhysics(),
                 itemCount: listEmployee.length,
                 itemBuilder: (context, index) {
-                  return GestureDetector(
-                    onTap: () {
-                      Get.to(
-                        DetailEmployee(
-                          dataEmployee: listEmployee[index],
-                        ),
-                      );
-                    },
-                    child: EmployeeCard(
-                      data: listEmployee[index],
-                    ),
+                  return EmployeeCard(
+                    data: listEmployee[index],
                   );
                 },
               ),

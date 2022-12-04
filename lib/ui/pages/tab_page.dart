@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:soal_test/theme.dart';
 import 'package:soal_test/ui/pages/tab_view/list_employee_page.dart';
 import 'package:soal_test/ui/pages/tab_view/list_user_page.dart';
-import 'package:soal_test/ui/pages/tab_view/profile_page.dart';
 
 class TabPage extends StatefulWidget {
   int selectedIndex;
@@ -19,7 +18,7 @@ class _TabPageState extends State<TabPage> with SingleTickerProviderStateMixin {
   void initState() {
     super.initState();
 
-    tabController = TabController(length: 3, vsync: this);
+    tabController = TabController(length: 2, vsync: this);
   }
 
   onItemClick(int index) {
@@ -40,7 +39,6 @@ class _TabPageState extends State<TabPage> with SingleTickerProviderStateMixin {
         children: [
           const ListUserPage(),
           ListEmployeePage(),
-          const ProfilePage(),
         ],
       ),
       bottomNavigationBar: Container(
@@ -67,12 +65,6 @@ class _TabPageState extends State<TabPage> with SingleTickerProviderStateMixin {
                 Icons.document_scanner_outlined,
               ),
               label: 'Employee',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.person,
-              ),
-              label: 'Profile',
             ),
           ],
           unselectedItemColor: greyColor,

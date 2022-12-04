@@ -5,6 +5,7 @@ import 'package:soal_test/models/user_model.dart';
 import 'package:soal_test/providers/get_user_provider.dart';
 import 'package:soal_test/theme.dart';
 import 'package:soal_test/ui/pages/create_employee_page.dart';
+import 'package:soal_test/ui/widgets/log_out_dialog.dart';
 import 'package:soal_test/ui/widgets/user_card.dart';
 
 class ListUserPage extends StatelessWidget {
@@ -15,13 +16,33 @@ class ListUserPage extends StatelessWidget {
     var getUser = Provider.of<GetUser>(context, listen: false);
 
     textHeader() {
-      return Text(
-        "Welcome in List Users",
-        style: blackTextStyle.copyWith(
-          fontSize: 25,
-          fontWeight: semiBold,
-        ),
-        textAlign: TextAlign.center,
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            "List Users",
+            style: blackTextStyle.copyWith(
+              fontSize: 25,
+              fontWeight: semiBold,
+            ),
+          ),
+          IconButton(
+            onPressed: () {
+              showDialog(
+                context: context,
+                barrierDismissible: false,
+                builder: (c) {
+                  return const LogOutDialog();
+                },
+              );
+            },
+            icon: Icon(
+              Icons.logout,
+              color: orangeColor,
+              size: 30,
+            ),
+          ),
+        ],
       );
     }
 
